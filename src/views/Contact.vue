@@ -1,5 +1,31 @@
 <template>
   <div class="contact">
-    <h1>This is an contact page</h1>
+    <Table v-bind:numbers="numbers"></Table>
   </div>
 </template>
+
+<script>
+
+import axios from 'axios';
+import Table from '../components/Table'
+
+export default {
+
+  name : "Contact",
+  components : {
+    Table,
+  },
+  data(){
+    return {
+      numbers : []
+    }
+  },
+  methods : {
+  },
+  created(){
+      axios.get("https://api.rootnet.in/covid19-in/contacts")
+      .then( res => this.numbers = res.data.data.contacts.regional )
+      .catch( err => console.log(err) );
+  }
+}
+</script>
