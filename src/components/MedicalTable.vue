@@ -8,7 +8,7 @@
             <th>Admission Capacity</th>
             <th>Hospital Beds</th>
 
-        <tr v-bind:key="row.state" v-for="row in data" >
+        <tr v-bind:key="row" v-for="row in data" >
             <td>{{row.state}}</td>
             <td>{{row.name}}</td> 
             <td>{{row.city}}</td>
