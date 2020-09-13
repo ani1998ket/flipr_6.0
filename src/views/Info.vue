@@ -29,7 +29,9 @@ export default {
           if(info.title=="PIB"){
             info.date = "-";
           }else if(info.title[1] == '.'){
+            let pos = info.title.search("&nbsp");
             info.date = "-";
+            info.title = info.title.slice(pos + 6);
           }else{
             info.date = info.title.slice(0,11);
             info.title = info.title.slice(11);
