@@ -4,7 +4,7 @@
         <tr v-bind:key="info.date" v-for="info in infos" >
             <td>{{info.date}}</td>
             <td>{{info.title}}</td>
-            <td>{{info.link}}</td> 
+            <td><a href = {{info.link}}>{{info.link}}</a></td>
             <hr>
         </tr>
         </table>
