@@ -25,7 +25,7 @@
 
 <script>
 export default {
-    name : "DashboardTable",
+    name : "HospitalTable",
     props: ["data"]
 }
 </script>

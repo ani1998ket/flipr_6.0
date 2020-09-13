@@ -1,31 +1,14 @@
 <template>
-  <div class="Dashboard">
-    <Table v-bind:data="data"></Table>
+  <div id="nav">
+    <router-link to="/dashboard/hospital">Hospital</router-link> | 
+    <router-link to="/dashboard/medical_college">Medical College</router-link>
   </div>
+  <router-view/>
 </template>
 
 <script>
 
-import axios from 'axios';
-import Table from '../components/DashboardTable'
-
 export default {
-
-  name : "Dashboard",
-  components : {
-    Table,
-  },
-  data(){
-    return {
-      data : []
-    }
-  },
-  methods : {
-  },
-  created(){
-      axios.get("https://api.rootnet.in/covid19-in/hospitals/beds")
-      .then( res => this.data = (res.data.data.regional) )
-      .catch( err => console.log(err) );
-  }
+  name : "Dashboard"
 }
 </script>

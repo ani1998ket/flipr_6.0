@@ -20,7 +20,17 @@ const routes = [
   {
     path: '/dashboard',
     name: 'Dashboard',
-    component: () => import('../views/Dashboard.vue')
+    component: () => import('../views/Dashboard.vue'),
+    children: [{
+        path : '/dashboard/hospital',
+        name : 'Hospital',
+        component : () => import('../views/Hospital.vue')
+      },{
+        path : '/dashboard/medical_college',
+        name : 'Medical_College',
+        component : () => import('../views/Medical_College.vue')
+      }
+    ]
   },
   {
     path: '/stats',
