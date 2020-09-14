@@ -62,6 +62,14 @@ export default {
   data(){
     return {
       data : [],
+      params : {
+        gender : "male",
+        age_min : 10,
+        age_max : 19,
+        state : "Karnataka",
+        date_start : "2020-03-27",
+        date_end : "2020-03-31"
+      },
       States : [
         "Kerala","Delhi","Telangana","Rajasthan","Haryana","Uttar Prad","Ladakh","Tamil Nadu","Jammu and","Karnataka","Maharashtr","Punjab","Andhra Pra",
         "Uttarakhan","Odisha","Puducherry","West Benga","Chandigarh","Chhattisga","Gujarat","Himachal P","Madhya Pra","Bihar","Manipur","Mizoram","Goa",
@@ -73,7 +81,7 @@ export default {
   methods : {
   },
   created(){
-      axios.get("http://localhost:8000/api/test")
+      axios.get("http://localhost:8000/api/test", { params : this.params} )
       .then( res => this.data = (res.data.data) )
       .catch( err => console.log(err) );
   }
