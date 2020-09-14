@@ -29,6 +29,9 @@ const routes = [
         path : '/dashboard/medical_college',
         name : 'Medical_College',
         component : () => import('../views/Medical_College.vue')
+      },{
+        path : '',
+        redirect : '/dashboard/hospital'
       }
     ]
   },
