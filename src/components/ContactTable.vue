@@ -1,6 +1,6 @@
 <template>
-    <div>
-        <table>
+    <div id = "app">
+        <table id = "app">
             <th> Location </th>
             <th> Number </th>
         <tr v-bind:key="number.number" v-for="number in numbers" >

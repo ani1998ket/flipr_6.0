@@ -4,6 +4,7 @@
     <label for="states">States</label>
     <select id="states" v-model="params.state" size="1">
       <option v-for="row in States" v-bind:value= row.name :key="row">{{row.name}}</option>
+      <option value="">All states</option>
     </select>
     <label for="Gender">Gender</label>
     <select id="Gender" v-model="params.gender">
@@ -62,7 +63,7 @@ export default {
         {name :"Jammu and Kashmir"},{name :"Karnataka"},{name :"Maharashtra"},{name :"Punjab"},{name :"Andhra Pradesh"},{name :"Uttarakhand"},{name :"Odisha"},
         {name :"Puducherry"},{name :"West Bengal"},{name :"Chandigarh"},{name :"Chhattisgarh"},{name :"Gujarat"},{name :"Himachal Pradesh"},
         {name :"Madhya Pradesh"},{name :"Bihar"},{name :"Manipur"},{name :"Mizoram"},{name :"Goa"},{name :"Andaman and Nicobar"},{name :"Jharkhand"},
-        {name :"Assam"},{name :"Arunachal Pradesh"},{name :"Tripura"},{name :"Meghalaya"},{name :"All states"}
+        {name :"Assam"},{name :"Arunachal Pradesh"},{name :"Tripura"},{name :"Meghalaya"}
       ]
     }
   },
@@ -79,7 +80,7 @@ export default {
       if(this.params.age_min == 0){
         this.params.age_max = 150;
       }
-      axios.get("http://localhost:8000/api/test", { params : this.params} )
+      axios.get("http://localhost:5000/api/test", { params : this.params} )
       .then( res => this.data = (res.data.data) )
       .catch( err => console.log(err) );
     },
