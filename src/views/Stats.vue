@@ -49,6 +49,11 @@ export default {
   data(){
     return {
       data : [],
+      graphData : {
+        hospitalised : 0,
+        recovered : 0,
+
+      },
       params : {
         gender : "",
         age_min : -1,
@@ -67,9 +72,9 @@ export default {
     }
   },
   methods : {
-    applyfilter(e){
-      e.preventDefault();
+    getData(){
       this.params.age_min = parseInt(this.params.age_min);
+      if( this.params.age_min == 0 ) this.params.age_min = 1;
       this.params.age_max = this.params.age_min + 9;
       if(this.params.age_min == 70){
         this.params.age_max += 40;
@@ -81,12 +86,16 @@ export default {
       axios.get("http://localhost:8000/api/test", { params : this.params} )
       .then( res => this.data = (res.data.data) )
       .catch( err => console.log(err) );
+    },
+
+    applyfilter(e){
+      e.preventDefault();
+      this.getData()
     }
+
   },
   created(){
-      axios.get("http://localhost:8000/api/test", { params : this.params} )
-      .then( res => this.data = (res.data.data) )
-      .catch( err => console.log(err) );
+      this.getData();
   }
 }
 </script>
