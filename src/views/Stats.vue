@@ -9,6 +9,7 @@
     <select id="Gender" v-model="params.gender">
       <option value="male">Male</option>
       <option value="female">Female</option>
+      <option value="">Both Gender</option>
     </select>
     <label for="age-group">Age Group</label>
     <select id="age-group" v-model="params.age_min" size="1">
@@ -50,11 +51,11 @@ export default {
       data : [],
       params : {
         gender : "",
-        age_min : 0,
-        age_max : 0,
-        state : "",
-        date_start : "",
-        date_end : ""
+        age_min : -1,
+        age_max : 150,
+        state : "Karnataka",
+        date_start : "2020-01-01",
+        date_end : "2020-12-31"
       },
       States : [
         {name :"Kerala"},{name :"Delhi"},{name :"Telangana"},{name :"Rajasthan"},{name :"Haryana"},{name :"Uttar Pradesh"},{name :"Ladakh"},{name :"Tamil Nadu"},
@@ -83,7 +84,7 @@ export default {
     }
   },
   created(){
-      axios.get("http://localhost:8000/api/test")
+      axios.get("http://localhost:8000/api/test", { params : this.params} )
       .then( res => this.data = (res.data.data) )
       .catch( err => console.log(err) );
   }
