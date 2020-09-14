@@ -28,3 +28,6 @@ https://github.com/ani1998ket/flipr_6.0_backend
 
 ### Link for hosted Backend Repo
 https://flipr6.herokuapp.com/api/test
+
+### Link for hosted Frontend
+https://flipr6front.herokuapp.com/
