@@ -13,7 +13,7 @@
     </select>
     <label for="age-group">Age Group</label>
     <select id="age-group" v-model="params.age_min" size="1">
-      <option value="0">0-9</option>
+      <option value="1">0-9</option>
       <option value="10">10-19</option>
       <option value="20">20-29</option>
       <option value="30">30-39</option>
@@ -21,7 +21,7 @@
       <option value="50">50-59</option>
       <option value="60">60-69</option>
       <option value="70">70 and above</option>
-      <option value="-1">All Age Group</option>
+      <option value="0">All Age Group</option>
     </select>
     <!-- <input type="number" id="min-age" v-model="params.age_min" min="0" max="70">
     <label for="max-age">Max Age</label>
@@ -51,7 +51,7 @@ export default {
       data : [],
       params : {
         gender : "",
-        age_min : -1,
+        age_min : 0,
         age_max : 150,
         state : "Karnataka",
         date_start : "2020-01-01",
@@ -62,7 +62,7 @@ export default {
         {name :"Jammu and Kashmir"},{name :"Karnataka"},{name :"Maharashtra"},{name :"Punjab"},{name :"Andhra Pradesh"},{name :"Uttarakhand"},{name :"Odisha"},
         {name :"Puducherry"},{name :"West Bengal"},{name :"Chandigarh"},{name :"Chhattisgarh"},{name :"Gujarat"},{name :"Himachal Pradesh"},
         {name :"Madhya Pradesh"},{name :"Bihar"},{name :"Manipur"},{name :"Mizoram"},{name :"Goa"},{name :"Andaman and Nicobar"},{name :"Jharkhand"},
-        {name :"Assam"},{name :"Arunachal Pradesh"},{name :"Tripura"},{name :"Meghalaya"}
+        {name :"Assam"},{name :"Arunachal Pradesh"},{name :"Tripura"},{name :"Meghalaya"},{name :"India"}
       ]
     }
   },
@@ -71,11 +71,13 @@ export default {
       e.preventDefault();
       this.params.age_min = parseInt(this.params.age_min);
       this.params.age_max = this.params.age_min + 9;
+      if(this.params.age_min == 1){
+        this.params.age_max = this.params.age_min + 8;
+      }
       if(this.params.age_min == 70){
         this.params.age_max += 40;
       }
-      if(this.params.age_min == -1){
-        this.params.age_min = 0;
+      if(this.params.age_min == 0){
         this.params.age_max = 150;
       }
       axios.get("http://localhost:8000/api/test", { params : this.params} )
