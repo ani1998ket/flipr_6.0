@@ -22,3 +22,9 @@ npm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+### Link for Backend Repo
+https://github.com/ani1998ket/flipr_6.0_backend
+
+### Link for hosted Backend Repo
+https://flipr6.herokuapp.com/api/test
