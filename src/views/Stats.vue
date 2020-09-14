@@ -49,11 +49,6 @@ export default {
   data(){
     return {
       data : [],
-      graphData : {
-        hospitalised : 0,
-        recovered : 0,
-
-      },
       params : {
         gender : "",
         age_min : 0,
@@ -74,7 +69,6 @@ export default {
   methods : {
     getData(){
       this.params.age_min = parseInt(this.params.age_min);
-      if( this.params.age_min == 0 ) this.params.age_min = 1;
       this.params.age_max = this.params.age_min + 9;
       if(this.params.age_min == 1){
         this.params.age_max = this.params.age_min + 8;
