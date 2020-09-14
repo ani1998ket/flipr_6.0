@@ -79,7 +79,7 @@ export default {
       if(this.params.age_min == 0){
         this.params.age_max = 150;
       }
-      axios.get("http://localhost:8000/api/test", { params : this.params} )
+      axios.get("http://localhost:5000/api/test", { params : this.params} )
       .then( res => this.data = (res.data.data) )
       .catch( err => console.log(err) );
     },
