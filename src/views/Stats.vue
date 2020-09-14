@@ -10,10 +10,21 @@
       <option value="male">Male</option>
       <option value="female">Female</option>
     </select>
-    <label for="min-age">Min Age</label>
-    <input type="number" id="min-age" v-model="params.age_min" min="0" max="70">
+    <label for="age-group">Age Group</label>
+    <select id="age-group" v-model="params.age_min" size="1">
+      <option value="0">0-9</option>
+      <option value="10">10-19</option>
+      <option value="20">20-29</option>
+      <option value="30">30-39</option>
+      <option value="40">40-49</option>
+      <option value="50">50-59</option>
+      <option value="60">60-69</option>
+      <option value="70">70 and above</option>
+      <option value="-1">All Age Group</option>
+    </select>
+    <!-- <input type="number" id="min-age" v-model="params.age_min" min="0" max="70">
     <label for="max-age">Max Age</label>
-    <input type="number" id="max-age" v-model="params.age_max" min="0" max="200">
+    <input type="number" id="max-age" v-model="params.age_max" min="0" max="200"> -->
     <label for="date-range">Date Range</label>
     <input type="date" id="date-range" v-model="params.date_start">
     <input type="date" id="date-range" v-model="params.date_end">
@@ -58,7 +69,14 @@ export default {
     applyfilter(e){
       e.preventDefault();
       this.params.age_min = parseInt(this.params.age_min);
-      this.params.age_max = parseInt(this.params.age_max);
+      this.params.age_max = this.params.age_min + 9;
+      if(this.params.age_min == 70){
+        this.params.age_max += 40;
+      }
+      if(this.params.age_min == -1){
+        this.params.age_min = 0;
+        this.params.age_max = 150;
+      }
       axios.get("http://localhost:8000/api/test", { params : this.params} )
       .then( res => this.data = (res.data.data) )
       .catch( err => console.log(err) );
