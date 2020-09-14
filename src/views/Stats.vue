@@ -62,7 +62,7 @@ export default {
         {name :"Jammu and Kashmir"},{name :"Karnataka"},{name :"Maharashtra"},{name :"Punjab"},{name :"Andhra Pradesh"},{name :"Uttarakhand"},{name :"Odisha"},
         {name :"Puducherry"},{name :"West Bengal"},{name :"Chandigarh"},{name :"Chhattisgarh"},{name :"Gujarat"},{name :"Himachal Pradesh"},
         {name :"Madhya Pradesh"},{name :"Bihar"},{name :"Manipur"},{name :"Mizoram"},{name :"Goa"},{name :"Andaman and Nicobar"},{name :"Jharkhand"},
-        {name :"Assam"},{name :"Arunachal Pradesh"},{name :"Tripura"},{name :"Meghalaya"},{name :"India"}
+        {name :"Assam"},{name :"Arunachal Pradesh"},{name :"Tripura"},{name :"Meghalaya"},{name :"All states"}
       ]
     }
   },
